@@ -4,8 +4,8 @@ from bs4 import BeautifulSoup as bs
 
 class SendRequestMOS:
     def __init__(self):
-        self.login = "voronovnr-1"
-        self.password = "V3376863n!"
+        self.login = ""
+        self.password = ""
         self.url = "https://school.mos.ru/"
 
         self.url_homework = "https://dnevnik.mos.ru/diary/homeworks/homeworks"
