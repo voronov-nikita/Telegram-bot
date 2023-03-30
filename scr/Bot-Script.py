@@ -5,12 +5,13 @@ from collecting_data import SendRequestMOS
 
 
 list_command = [
-    # домашка
-    ["домашка", "дз", "домашнее задание"],
-    # что-то
+    [],
     [],
     []
 ]
+
+login = "voronovnr_1"
+password = "V3376863n!"
 
 token_bot = "6089674486:AAEJE6Vajx0gbnQk6bPJjq98J2Dekrpmio0"
 bot = telebot.TeleBot(token_bot, parse_mode="MARKDOWN")
@@ -34,7 +35,7 @@ def write_about_bot(message):
     msg = message.text.lower()
 
     if msg in list_command[0]:
-        SendRequestMOS.get_homework()
+        SendRequestMOS(login=login, password=password).get_homework()
 
 
 # запуск бота

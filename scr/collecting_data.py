@@ -3,9 +3,9 @@ from bs4 import BeautifulSoup as bs
 
 
 class SendRequestMOS:
-    def __init__(self):
-        self.login = ""
-        self.password = ""
+    def __init__(self, login, password):
+        self.login = login
+        self.password = password
         self.url = "https://school.mos.ru/"
 
         self.url_homework = "https://dnevnik.mos.ru/diary/homeworks/homeworks"
@@ -16,5 +16,3 @@ class SendRequestMOS:
     def get_homework(self, day=None):
         get(self.url)
 
-    def logIn(self, login=None, password=None):
-        pass
