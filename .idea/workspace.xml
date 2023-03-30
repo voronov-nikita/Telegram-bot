@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scr/Bot-Script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/Bot-Script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scr/collecting_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/collecting_data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/info.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scr/test-function.py" beforeDir="false" afterPath="$PROJECT_DIR$/scr/test-function.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +41,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Python.test-function">
+  <component name="RunManager" selected="Python.Bot-Script (1)">
     <configuration name="Bot-Script (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Telegramm-bot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -105,8 +107,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test-function" />
         <item itemvalue="Python.Bot-Script (1)" />
+        <item itemvalue="Python.test-function" />
         <item itemvalue="Python.Bot-Script" />
       </list>
     </recent_temporary>
@@ -121,5 +123,16 @@
       <updated>1678894057803</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
