@@ -1,7 +1,7 @@
 import telebot
 from telebot import types
 import sqlite3 as sql
-from messages import MessageText, ButtonText
+from messages import MessageText, ButtonText, AudioLink
 
 
 class Bot():
@@ -51,8 +51,8 @@ class Bot():
                 keyboard = types.ReplyKeyboardMarkup(row_width=2)
 
                 # Создаем кнопки
-                button1 = types.KeyboardButton('Кнопка 1')
-                button2 = types.KeyboardButton('Кнопка 2')
+                button1 = types.KeyboardButton('/find')
+                button2 = types.KeyboardButton('/music')
                 button3 = types.KeyboardButton('/help')
                 button4 = types.KeyboardButton('/more')
 
@@ -65,6 +65,10 @@ class Bot():
         @self.bot.message_handler(commands=["help"], content_types=["text"])
         def help_message(message):
             self.bot.send_message(message.chat.id, MessageText['help'])
+
+        @self.bot.message_handler(commands=["music"], content_types=["text"])
+        def music_message(message):
+            self.bot.send_audio(message.chat.id, AudioLink['first'])
 
         @self.bot.message_handler(commands=["more"], content_types=["text"])
         def more_message(message):
