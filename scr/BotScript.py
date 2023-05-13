@@ -2,8 +2,9 @@ import telebot
 from telebot import types
 import sqlite3 as sql
 from PIL import Image
+from random import randint
 from io import BytesIO
-from messages import MessageText, ButtonText, AudioLink
+from messages import MessageText, ButtonText, AudioLink, ErrorMessage
 
 class DataBaseFunction():
 # =============== Data Base with user information ===============
@@ -47,7 +48,7 @@ class DataBaseFunction():
         db.commit()
         db.close()
 
-    def add_new_file(self, name, file, bot):
+    def add_new_file(self, user_id, name, file, bot):
 
         file_id = file.file_id
         file_info = bot.get_file(file_id)
@@ -55,13 +56,16 @@ class DataBaseFunction():
 
         db = sql.connect("DataBase.db")
         cursor = db.cursor()
-        cursor.execute("SELECT * FROM files WHERE name=?", (name,))
+        cursor.execute("SELECT * FROM files WHERE file=?", (new_file,))
         replay =cursor.fetchone()
         if not(replay):
             cursor.execute("""
                 INSERT INTO files (name, file) VALUES (?, ?)
                 """, (name, new_file))
             db.commit()
+            bot.send_message(user_id, MessageText['successful'])
+        else:
+            bot.send_message(user_id, MessageText['replay_image'])
         db.close()
 
     def image_from_bytes(self, user_id, file, bot):
@@ -75,7 +79,10 @@ class DataBaseFunction():
         cursor.execute("SELECT * FROM files WHERE name=?", (name_file, ))
 
         rows = cursor.fetchall()
-        self.image_from_bytes(user_id, rows[0][1], bot)
+        try:
+            self.image_from_bytes(user_id, rows[0][1], bot)
+        except IndexError:
+            bot.send_message(user_id, ErrorMessage['index_image'])
 
         db.close()
 
@@ -87,6 +94,8 @@ class Bot():
         self.bd.create_data_base_users()
         self.bd.create_data_base_files()
         self.bot = telebot.TeleBot(token, parse_mode="MARKDOWN")
+
+        self.count_image = 0
 
 
     def run(self):
@@ -127,7 +136,8 @@ class Bot():
 
         @self.bot.message_handler(commands=["image"], content_types=["text"])
         def photo_message(message):
-            self.bd.get_from_database(message.chat.id, name_file="code", bot=self.bot)
+            name_image = randint(0, self.count_image)
+            self.bd.get_from_database(message.chat.id, name_file=f"{name_image}", bot=self.bot)
 
         @self.bot.message_handler(commands=["more"], content_types=["text"])
         def more_message(message):
@@ -153,8 +163,8 @@ class Bot():
 
         @self.bot.message_handler(content_types=['photo'])
         def get_image(message):
-            self.bd.add_new_file(name="code", file=message.photo[-1], bot=self.bot)
-            self.bot.send_message(message.chat.id, MessageText['successful'])
+            self.bd.add_new_file(message.chat.id, name=f"{self.count_image}", file=message.photo[-1], bot=self.bot)
+            self.count_image+=1
 
         @self.bot.callback_query_handler(func=lambda call: True)
         def listen_button_call(call):
