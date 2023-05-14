@@ -6,6 +6,7 @@ from random import randint
 from io import BytesIO
 from messages import MessageText, ButtonText, AudioLink, ErrorMessage
 
+# <<<<<<<<<<<<<<<<<< MAIN DATABASE FUNCTION >>>>>>>>>>>>>>>>>>
 class DataBaseFunction():
 # =============== Data Base with user information ===============
     def create_data_base_users(self):
@@ -86,7 +87,7 @@ class DataBaseFunction():
 
         db.close()
 
-
+# <<<<<<<<<<<<<<<<<< MAIN BOT FUNCTION >>>>>>>>>>>>>>>>>>
 class Bot():
     def __init__(self, token):
         self.bd = DataBaseFunction()

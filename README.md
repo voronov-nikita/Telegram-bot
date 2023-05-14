@@ -1,21 +1,38 @@
 # Telegram-bot
+### The Newton bot
 
-## **Введение**
---------
+<br>
 
-На сегодняшний день почти у каждого есть хотя бы один аккаунт в Telegram. Данный мессенджер привлекает новых пользователей ежедневно, это никак не могло не отразиться на росте его функций. Одной из основных функций Telegram - это его боты, способные автоматизировать и упростить множество вещей, которые раньше требовалось делать вручную.
+## Content
+1. [About](/README.md#about)
+2. [Main Description](/README.md#main-function)
+3. [Useful Links](/README.md#useful-links)
+4. [More Information](/README.md#more-information)
+
+## **About**
+
+Today, almost everyone has at least one Telegram account. This messenger attracts new users every day, this could not but affect the growth of its functions. One of the main functions of Telegram is its bots, which are able to automate and simplify a lot of things that previously had to be done manually.
+
+The bot is implemented in the Python programming language/ To work with telegram itself, the [telebot](https://pypi.org/project/pyTelegramBotAPI/) library was taken.
 
 ![telegram-bot](https://gravitec.net/ru/blog/wp-content/uploads/2019/03/origin.jpg)
 
-## **Мой бот**
-----------
+## **Main function**
+1. Send images
+2. Send message
+3. Send help info
 
-Бот, размещенный в этом репозитории, сделан исключительно для ознакомления с особенностями создания подобных ботов.
+## **Useful Links**
+1. python - [python.org](https://python.org)
+2. telebot - [pypi.org](https://pypi.org/project/pyTelegramBotAPI/)
+3. sqlite3 - [docs.python.org](https://docs.python.org/3/library/sqlite3.html)
+4. pillow - [pypi.org](https://pypi.org/project/Pillow/)
+5. python io - [docs.python.org](https://docs.python.org/3/library/io.html)
 
-В данном примере используется простейшая база данных, реализованная, с помощью _sqlite3_. База данных представлена в виде таблицы, которая должна упростить сортировку данных по определенным признакам.
 
-Для работы с самим telegram, была взята стандартная библиотека [telebot](https://pypi.org/project/pyTelegramBotAPI/).
+## **More information**
 
-В бота планируется добавить управление запросами для дополнительных функций.
 
-###### 15.03.2023 - last commit.
+<br>
+
+###### 13.05.2023 - last commit.
